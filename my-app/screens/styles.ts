@@ -24,13 +24,17 @@ export const styles = StyleSheet.create({
   },
   login: {
     width: 350,
-    height: 500,
+    height: 450,
     borderWidth: 2,
     borderRadius: 10,
     borderColor: "rgba(255,255,255,0.2)",
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 25,
+    gap: 15,
+  },
+  logo: {
+    height: 120,
+    aspectRatio: 2.2,
   },
   title: {
     fontSize: 25,
@@ -60,6 +64,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    marginVertical: 10,
+    marginVertical: 5,
   },
 });
