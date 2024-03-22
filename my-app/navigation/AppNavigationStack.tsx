@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import { ActivityIndicator, View } from 'react-native';
-
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState, useEffect } from 'react';
 import { LoginScreen, ScreenNames } from "../screens";
 import { TabNavigationStack } from "./TabNavigationStack";
@@ -10,8 +9,6 @@ import { AppStackList, StackNames } from "./types";
 import { onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../firebase-config';
 import { NavigationContainer } from '@react-navigation/native';
-
-
 
 
 
@@ -27,17 +24,20 @@ export const AppNavigationStack = () => {
     })
   }, [])
   return (
-    <NavigationContainer>
-      {!loading ? <AppNavigator.Navigator
-        screenOptions={{ headerShown: false }}>
-        {user ? (<AppNavigator.Screen
-          name={StackNames.TAB_STACK}
-          component={TabNavigationStack} />) : (<AppNavigator.Screen
-            name={ScreenNames.LOGIN}
-            component={LoginScreen} />)}
-      </AppNavigator.Navigator> :
-        <View style={{ flex: 1, justifyContent: "center" }}>
-          <ActivityIndicator size='large' color='#0081C6' /></View>}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        {!loading ? <AppNavigator.Navigator
+          screenOptions={{ headerShown: false }}>
+          {user ? (
+            <AppNavigator.Screen
+              name={StackNames.TAB_STACK}
+              component={TabNavigationStack} />) : (<AppNavigator.Screen
+                name={ScreenNames.LOGIN}
+                component={LoginScreen} />)}
+        </AppNavigator.Navigator> :
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <ActivityIndicator size='large' color='#0081C6' /></View>}
+      </NavigationContainer>
+    </SafeAreaProvider>
   )
 };

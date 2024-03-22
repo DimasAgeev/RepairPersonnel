@@ -8,7 +8,7 @@ export type TabStackList = {
   News: undefined,
   Favorites: undefined;
   Profile: undefined;
-  Send: undefined;
+  Add: undefined;
   DetailFavoritesStack: undefined;
   DetailCategoriesStack: undefined;
   DetailProfileStack: undefined;

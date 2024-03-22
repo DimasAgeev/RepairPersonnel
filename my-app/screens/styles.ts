@@ -6,11 +6,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     resizeMode: 'cover',
+
   },
   contentWrapper: {
+    flex: 1,
     alignItems: 'center',
-    width: '70%',
-    height: '70%',
     justifyContent: 'center',
   },
   background: {
