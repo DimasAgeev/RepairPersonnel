@@ -33,7 +33,7 @@ export const TabNavigationStack = () => {
             return (
               <View style={styles.icon}>
                 <Entypo name="home" size={24} color={focused ? '#0081C6' : '#808080'} />
-                <Text style={styles.text}>{StackNames.HOME_STACK}</Text>
+                <Text style={styles.text}>{ScreenNames.HOME}</Text>
               </View>
             )
           },

@@ -1,13 +1,15 @@
-
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
 import { AppNavigationStack } from './navigation';
-
+import { store } from './store/store';
 
 
 export default function App() {
 
   return (
-    <AppNavigationStack />
+    <Provider store={store}>
+      <AppNavigationStack />
+    </Provider>
   );
 }
 

@@ -6,50 +6,48 @@ import { useState } from 'react';
 import { FIREBASE_AUTH } from '../../firebase-config';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector, useDispatch } from 'react-redux';
+import { Loading } from '../../components';
+import { setUserLoading } from '../../store/slices/user';
 
 
 
 export const LoginScreen = () => {
-
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { userLoading } = useSelector((state: any) => state.user)
+
   const auth = FIREBASE_AUTH;
   const navigation = useNavigation();
-
-
+  const dispatch = useDispatch();
 
   const signIn = async () => {
-    setLoading(true);
+    dispatch(setUserLoading(true))
     try {
       await signInWithEmailAndPassword(auth, email, password)
-     }
+    }
     catch (error: any) {
       alert('Регистрация провалена: ' + error.message)
     }
     finally {
-      setLoading(false);
+      dispatch(setUserLoading(false))
     }
   }
 
-
   const signUp = async () => {
-    setLoading(true);
+    dispatch(setUserLoading(true))
     try {
       const respons = await createUserWithEmailAndPassword(auth, email, password)
       console.log(respons)
 
     }
     catch (error: any) {
-      console.log(error)
       alert('Введите корректные данные!!! ' + error.message)
     }
     finally {
-      setLoading(false);
+      dispatch(setUserLoading(false))
     }
   }
-
 
   return (
     <View style={styles.wrapper}>
@@ -81,7 +79,7 @@ export const LoginScreen = () => {
               </Text>
               <TextInput secureTextEntry={true} value={password} onChangeText={(text) => setPassword(text)} style={styles.input} placeholder='Password' />
             </View>
-            {loading ? (<ActivityIndicator size='large' color='#0081C6' />) : (<View>
+            {userLoading ? (<Loading />) : (<View>
               <TouchableOpacity onPress={signIn} style={styles.button}>
                 <Text style={styles.text}>
                   Войти
