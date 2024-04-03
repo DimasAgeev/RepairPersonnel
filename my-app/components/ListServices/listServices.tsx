@@ -2,7 +2,7 @@
 import { Animated, View, Image, Text, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { DB } from '../../firebase-config';
-import { collection, query, getDocs } from 'firebase/firestore'
+import { collection, query, getDocs, orderBy } from 'firebase/firestore'
 import { styles } from './styles';
 
 
@@ -18,11 +18,11 @@ export const ListServices = () => {
 
   const getDocument = async () => {
     const data = []
-    const q = query(collection(DB, "Services"));
+    const q = query(collection(DB, "Services"), orderBy('id', 'asc'));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       data.push(doc.data())
-      console.log(doc.id, " => ", doc.data());
+      //console.log(doc.id, " => ", doc.data());
     });
     setValue(data)
 

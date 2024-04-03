@@ -1,7 +1,6 @@
 import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from "../styles"
 import { NavigationProp } from '@react-navigation/native';
-import { FIREBASE_AUTH } from '../../firebase-config';
 import { Header, ListServices } from '../../components';
 
 interface RouterProps {
