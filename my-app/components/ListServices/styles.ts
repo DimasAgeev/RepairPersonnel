@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.5,
+    backgroundColor: '#fff',
+    borderRadius: scaleSize(50),
   },
   img: {
     width: '100%',

@@ -18,7 +18,7 @@ export const UploadNews = () => {
   const [category, setCategory] = useState([]);
   const storage = getStorage();
   const [loading, setLoading] = useState(false);
-  //const { user } = useUser(); Получение текущего пользователя userName: '', userEmail: '', userImage: '' 
+
 
   useEffect(() => {
     GetCategory()
@@ -28,7 +28,6 @@ export const UploadNews = () => {
     setCategory([]);
     const querySnapshot = await getDocs(collection(DB, "Categories"));
     querySnapshot.forEach((doc) => {
-      console.log('Категории', doc.data());
       setCategory(category => [...category, doc.data()])
     });
   }
@@ -53,13 +52,10 @@ export const UploadNews = () => {
     const storageRef = ref(storage, 'news/' + Date.now() + '.jpg')
 
     uploadBytes(storageRef, blob).then((snapshot) => {
-      console.log('Uploaded a blob or file!');
     }).then((resp) => {
       getDownloadURL(storageRef).then(async (downloadURL) => {
         value.image = downloadURL
-        //value.userName = user?.fullName
-        //value.userEmail = user?.primaryEmailAddress?.emailAddress
-        //value.userImage = user?.imageUrl
+
         const docRef = await addDoc(collection(DB, 'NewsPost'), value)
         if (docRef.id) {
           setLoading(false);
@@ -79,20 +75,19 @@ export const UploadNews = () => {
       <SafeAreaView>
         <KeyboardAvoidingView behavior='position'>
           <Formik
-            initialValues={{ category: '', date: '', place: '', description: '', image: '', createdAt: Date.now }}
+            initialValues={{ category: '', date: '', place: '', description: '', image: '', createdAt: Date.now() }}
             onSubmit={value => onSubmitMethod(value)}
             validate={(value) => {
               const errors = {}
 
               if (!value.date) {
                 errors.date = 'Введите дату'
-                console.log(errors.date)
               } else if (!/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/.test(value.date)) {
                 errors.date = 'Неверный формат даты'
               }
 
               if (!value.description) {
-                errors.description = 'Введите описание max: 100 символов'
+                errors.description = 'Введите описание max: 500 символов'
               }
               if (!value.place) {
                 errors.place = 'Введите место происшествия'
@@ -150,7 +145,7 @@ export const UploadNews = () => {
                     multiline
                     editable
                     numberOfLines={4}
-                    maxLength={100}
+                    maxLength={500}
                     textAlignVertical={'top'}
                     placeholder='Опишите проишествие' />
                   <Text style={styles.textError}>{errors.description}</Text>

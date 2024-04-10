@@ -11,6 +11,7 @@ import { StackNames, TabStackList } from "./types";
 import { FavoritesScreen, ProfileScreen, ScreenNames, SendScreen } from '../screens';
 import { NewsScreen } from '../screens/tabScreens/NewsScreen';
 import { View, Text } from 'react-native';
+import { NewsNativeStack } from './NewsNativeStack';
 
 
 const TabNavigator = createBottomTabNavigator<TabStackList>();
@@ -50,7 +51,7 @@ export const TabNavigationStack = () => {
             )
           },
         }}
-        name={ScreenNames.NEWS} component={NewsScreen} />
+        name={StackNames.DETAIL_NEWS_STACK} component={NewsNativeStack} />
 
       <TabNavigator.Screen
         options={{

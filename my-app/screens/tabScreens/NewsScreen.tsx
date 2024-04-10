@@ -1,16 +1,16 @@
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
+
+import { ListNews } from '../../components';
 
 import { styles } from "../styles"
 
 
 export const NewsScreen = () => {
   return (
-
-    <View style={styles.contentWrapper}>
-
-    </View>
-
+    <SafeAreaView style={styles.wrapper}>
+      <View style={styles.contentWrapper}>
+        <ListNews />
+      </View>
+    </SafeAreaView>
   );
 };
-
-

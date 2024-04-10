@@ -18,7 +18,7 @@ export const LoginScreen = () => {
   const { userLoading } = useSelector((state: any) => state.user)
 
   const auth = FIREBASE_AUTH;
-  const navigation = useNavigation();
+
   const dispatch = useDispatch();
 
   const signIn = async () => {
@@ -37,9 +37,7 @@ export const LoginScreen = () => {
   const signUp = async () => {
     dispatch(setUserLoading(true))
     try {
-      const respons = await createUserWithEmailAndPassword(auth, email, password)
-      console.log(respons)
-
+      const user = await createUserWithEmailAndPassword(auth, email, password,)
     }
     catch (error: any) {
       alert('Введите корректные данные!!! ' + error.message)

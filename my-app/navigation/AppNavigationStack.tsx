@@ -39,7 +39,6 @@ export const AppNavigationStack = () => {
       <NavigationContainer>
         {!loading ? <AppNavigator.Navigator
           screenOptions={{ headerShown: false }}>
-
           {user ?
             (<AppNavigator.Screen
               name={StackNames.TAB_STACK}

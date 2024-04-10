@@ -22,7 +22,6 @@ export const ListServices = () => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       data.push(doc.data())
-      //console.log(doc.id, " => ", doc.data());
     });
     setValue(data)
 

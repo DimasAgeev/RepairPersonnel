@@ -1,6 +1,7 @@
 export enum ScreenNames {
   HOME = 'Home',
-  NEWS = 'News',
+  NEWS = 'Новости',
+  DETAILS_NEWS = 'DetailsNews',
   ADD = 'Add',
   FAVORITES = 'Favorites',
   PROFILE = 'Profile',
