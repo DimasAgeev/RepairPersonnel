@@ -3,17 +3,23 @@ import { FavoritesScreen } from './tabScreens/FavoritesScreen';
 import { LoginScreen } from './stackScreens/LoginScreen';
 import { ProfileScreen } from './tabScreens/ProfileScreen';
 import { SendScreen } from "./tabScreens/SendScreen";
-import { ScreenNames } from './types'
-import { DetailsNewsScreen } from "./stackScreens/DetailsNewsScreen";
-import { NewsScreen } from "./tabScreens/NewsScreen";
+import { DetailsIncidentScreen } from "./stackScreens/DetailsIncidentScreen";
+import { InfoScreen } from "./tabScreens/InfoScreen";
+import { DetailsNewsScreen } from "./stackScreens/DetailsNewsScreen/DetailsNewsScreen";
+import { DetailsCategoryScreen } from "./stackScreens/DetailsCategoryScreen/DetailsCategoryScreen";
+import { ChangePersonalDataScreen } from "./stackScreens/ChangePersonalDataScreen/ChangePersonalDataScreen";
+import { ChangePasswordScreen } from "./stackScreens/ChangePasswordScreen/ChangePasswordScreen";
 
 export {
   DetailsNewsScreen,
+  DetailsIncidentScreen,
+  DetailsCategoryScreen,
+  ChangePersonalDataScreen,
+  ChangePasswordScreen,
   HomeScreen,
-  ScreenNames,
   FavoritesScreen,
   LoginScreen,
   ProfileScreen,
   SendScreen,
-  NewsScreen,
+  InfoScreen,
 };

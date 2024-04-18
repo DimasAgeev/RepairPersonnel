@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { scaleSize } from "../../utirls";
+import { scaleSize } from "../../../utirls";
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: 'auto',
-    height: 380,
+    height: scaleSize(720),
   },
   image: {
     width: '100%',
@@ -28,42 +28,25 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0, 129, 198, 0.2)',
-  },
-  textWrapperDescription: {
-    height: scaleSize(300),
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0, 129, 198, 0.2)',
+
   },
   title: {
     fontSize: 14,
     fontWeight: '700',
-  },
-  textCategory: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: 'red',
-    textTransform: 'capitalize',
   },
   text: {
     fontSize: 12,
     fontWeight: '700',
     color: 'rgba(105, 105, 105, 1)',
   },
-  mesengerButton: {
-    width: '100 %',
-    height: 50,
-    backgroundColor: 'rgba(0, 129, 198, 1)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
+  creatorWrapper: {
+    alignItems: 'flex-end',
+    borderTopWidth: 1,
+    borderColor: 'rgba(0, 129, 198, 0.2)',
+    paddingBottom: scaleSize(10),
   },
-  textButton: {
-    color: '#fff',
-    fontSize: 24,
+  creator: {
+    fontSize: 8,
+    fontWeight: '700',
   },
 });

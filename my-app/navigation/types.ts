@@ -5,28 +5,34 @@ export type AppStackList = {
 }
 export type TabStackList = {
   HomeStack: undefined;
-  Favorites: undefined;
+  FavoritesStack: undefined;
   Profile: undefined;
-  Add: undefined;
+  SendStack: undefined;
+  InfoStack: undefined;
   DetailFavoritesStack: undefined;
   DetailNewsStack: undefined;
-  DetailProfileStack: undefined;
-
+  ProfileStack: undefined;
 }
 
 export type HomeNativeStackList = {
-  Home: undefined;
+  Главная: undefined;
   Новости: undefined;
-  DetailsNews: undefined;
+  Инцидент: undefined;
+  Инфо: undefined;
+  Категория: undefined;
+  Новость: undefined;
+  Профиль: undefined;
+  Данные: undefined;
+  Пароль: undefined;
 }
-
 
 export enum StackNames {
   MAIN_STACK = 'MainStack',
   TAB_STACK = 'TabStack',
   DRAVER_STACK = 'DraverStack',
   HOME_STACK = 'HomeStack',
-  DETAIL_FAVORITES_STACK = 'DetailFavoritesStack',
-  DETAIL_NEWS_STACK = 'DetailNewsStack',
-  DETAIL_PROFILE_STACK = 'DetailProfileStack',
+  INFO_STACK = 'InfoStack',
+  SEND_STACK = 'SendStack',
+  FAVORITES_STACK = 'FavoritesStack',
+  PROFILE_STACK = 'ProfileStack',
 }

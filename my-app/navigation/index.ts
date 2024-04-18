@@ -1,7 +1,7 @@
 import { AppNavigationStack } from '../navigation/AppNavigationStack';
-import { NewsNativeStack } from './NewsNativeStack';
+import { InfoNativeStack } from './InfoNativeStack';
 
 export {
   AppNavigationStack,
-  NewsNativeStack,
+  InfoNativeStack
 };

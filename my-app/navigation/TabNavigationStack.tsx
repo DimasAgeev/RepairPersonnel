@@ -8,10 +8,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { styles } from "./styles";
 import { StackNames, TabStackList } from "./types";
-import { FavoritesScreen, ProfileScreen, ScreenNames, SendScreen } from '../screens';
-import { NewsScreen } from '../screens/tabScreens/NewsScreen';
+import { FavoritesScreen, SendScreen } from '../screens';
+import { ScreenNames } from '../screens/types';
 import { View, Text } from 'react-native';
-import { NewsNativeStack } from './NewsNativeStack';
+import { InfoNativeStack } from './InfoNativeStack';
+import { ProfileNativeStack } from './ProfileNativeStack';
 
 
 const TabNavigator = createBottomTabNavigator<TabStackList>();
@@ -34,24 +35,25 @@ export const TabNavigationStack = () => {
             return (
               <View style={styles.icon}>
                 <Entypo name="home" size={24} color={focused ? '#0081C6' : '#808080'} />
-                <Text style={styles.text}>{ScreenNames.HOME}</Text>
+                <Text style={styles.text}>{ScreenNames.MAIN}</Text>
               </View>
             )
           },
         }}
-        name={StackNames.HOME_STACK} component={HomeNativeStack} />
+        name={StackNames.HOME_STACK} component={HomeNativeStack}
+      />
       <TabNavigator.Screen
         options={{
           tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.icon}>
                 <Ionicons name="newspaper" size={24} color={focused ? '#0081C6' : '#808080'} />
-                <Text style={styles.text}>{ScreenNames.NEWS}</Text>
+                <Text style={styles.text}>{ScreenNames.INFO}</Text>
               </View>
             )
           },
         }}
-        name={StackNames.DETAIL_NEWS_STACK} component={NewsNativeStack} />
+        name={StackNames.INFO_STACK} component={InfoNativeStack} />
 
       <TabNavigator.Screen
         options={{
@@ -64,7 +66,7 @@ export const TabNavigationStack = () => {
             )
           },
         }}
-        name={ScreenNames.ADD} component={SendScreen} />
+        name={StackNames.SEND_STACK} component={SendScreen} />
       <TabNavigator.Screen
         options={{
           tabBarIcon: ({ focused }) => {
@@ -76,7 +78,7 @@ export const TabNavigationStack = () => {
             )
           },
         }}
-        name={ScreenNames.FAVORITES} component={FavoritesScreen} />
+        name={StackNames.FAVORITES_STACK} component={FavoritesScreen} />
       <TabNavigator.Screen
         options={{
           tabBarIcon: ({ focused }) => {
@@ -88,7 +90,7 @@ export const TabNavigationStack = () => {
             )
           },
         }}
-        name={ScreenNames.PROFILE} component={ProfileScreen} />
+        name={StackNames.PROFILE_STACK} component={ProfileNativeStack} />
     </TabNavigator.Navigator >
   )
 };

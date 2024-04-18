@@ -1,11 +1,16 @@
 export enum ScreenNames {
-  HOME = 'Home',
-  NEWS = 'Новости',
-  DETAILS_NEWS = 'DetailsNews',
-  ADD = 'Add',
-  FAVORITES = 'Favorites',
-  PROFILE = 'Profile',
+  MAIN = 'Главная',
+  DETAILS_INCIDENT = 'Инцидент',
+  DETAILS_NEWS = 'Новость',
+  DETAILS_CATEGORY = 'Категория',
+  ADD = 'Поделиться',
+  INFO = 'Инфо',
+  FAVORITES = 'Любимые',
+  PROFILE = 'Профиль',
   LOGIN = 'Login',
+  PERSONAL_DATA = 'Данные',
+  PASSWORD = 'Пароль',
+
 }
 
 export type ScreenList = {

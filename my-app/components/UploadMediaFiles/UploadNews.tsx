@@ -2,23 +2,34 @@ import { View, Text, TouchableOpacity, TextInput, ScrollView, Image, KeyboardAvo
 import React, { useState, useEffect } from 'react';
 import { DB } from '../../firebase-config'
 import { styles } from './styles';
-import { scaleSize } from '../../utirls';
 import { Picker } from '@react-native-picker/picker'
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import * as ImagePicker from 'expo-image-picker';
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { useUser } from '@clerk/clerk-expo';
 import { Loading } from '../Loading/loading';
 
+interface Category {
+  name: string;
+  id: number;
+  icon: string;
+}
+
+interface NewsPost {
+  category: string;
+  date: string;
+  place: string;
+  description: string;
+  image: string;
+  createdAt: number;
+}
+
+
 export const UploadNews = () => {
-
-
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState([]);
+  const [image, setImage] = useState<string | null>(null);
+  const [category, setCategory] = useState<Category[]>([]);
   const storage = getStorage();
   const [loading, setLoading] = useState(false);
-
 
   useEffect(() => {
     GetCategory()
@@ -44,7 +55,7 @@ export const UploadNews = () => {
     }
   }
 
-  const onSubmitMethod = async (value) => {
+  const onSubmitMethod = async (value: NewsPost, { resetForm }) => {
     setLoading(true)
 
     const resp = await fetch(image)
@@ -59,6 +70,8 @@ export const UploadNews = () => {
         const docRef = await addDoc(collection(DB, 'NewsPost'), value)
         if (docRef.id) {
           setLoading(false);
+          resetForm();
+          setImage(null)
           Alert.alert('Информация успешно загружена и будет опубликована в разделе новости полсе модерации')
         }
       })
@@ -76,9 +89,9 @@ export const UploadNews = () => {
         <KeyboardAvoidingView behavior='position'>
           <Formik
             initialValues={{ category: '', date: '', place: '', description: '', image: '', createdAt: Date.now() }}
-            onSubmit={value => onSubmitMethod(value)}
+            onSubmit={onSubmitMethod}
             validate={(value) => {
-              const errors = {}
+              const errors: Partial<NewsPost> = {}
 
               if (!value.date) {
                 errors.date = 'Введите дату'
@@ -95,7 +108,7 @@ export const UploadNews = () => {
               return errors
             }}
           >
-            {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
+            {({ handleChange, handleSubmit, values, errors }) => (
 
               <ScrollView contentContainerStyle={{
                 alignItems: 'center',
@@ -150,10 +163,6 @@ export const UploadNews = () => {
                     placeholder='Опишите проишествие' />
                   <Text style={styles.textError}>{errors.description}</Text>
                 </View>
-
-
-
-
                 <View style={styles.inputWrapper}>
                   <Text style={styles.text}>
                     Дата
@@ -166,7 +175,6 @@ export const UploadNews = () => {
                     placeholder='Укажите дату происшествия ДД.ММ.ГГГГ ' />
                   <Text style={styles.textError}>{errors.date}</Text>
                 </View>
-
                 <View style={styles.inputWrapper}>
                   <Text style={styles.text}>
                     Место
@@ -178,10 +186,6 @@ export const UploadNews = () => {
                     placeholder='Укажите место проишествия' />
                   <Text style={styles.textError}>{errors.place}</Text>
                 </View>
-
-
-
-
                 <TouchableOpacity style={loading ? styles.uploadLoadingButton : styles.uploadButton} onPress={handleSubmit}
                   disabled={loading}
                 >
@@ -189,15 +193,11 @@ export const UploadNews = () => {
                     Отправить
                   </Text>}
                 </TouchableOpacity>
-
               </ScrollView>
-
             )}
-
           </Formik>
         </KeyboardAvoidingView>
       </SafeAreaView>
     </View >
-
   )
 }

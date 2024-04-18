@@ -2,7 +2,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LoginScreen, ScreenNames } from "../screens";
+import { LoginScreen } from "../screens/";
+import { ScreenNames } from '../screens/types';
 import { TabNavigationStack } from "./TabNavigationStack";
 import { AppStackList, StackNames } from "./types";
 import { onAuthStateChanged } from 'firebase/auth';
@@ -25,15 +26,6 @@ export const AppNavigationStack = () => {
     setTimeout(() => setLoading(false), 1000)
   })
 
-
-  //const [user, setUser] = useState<User | null>(null);
-  //const [loading, setLoading] = useState(true);
-  //useEffect(() => {
-  //  onAuthStateChanged(FIREBASE_AUTH, (user) => {
-  //    setUser(user)
-  //    setTimeout(() => setLoading(false), 10)
-  //  })
-  //}, [])
   return (
     <SafeAreaProvider>
       <NavigationContainer>

@@ -5,18 +5,15 @@ import { styles } from "../styles"
 import { useState } from 'react';
 import { FIREBASE_AUTH } from '../../firebase-config';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import { Loading } from '../../components';
 import { setUserLoading } from '../../store/slices/user';
-
 
 
 export const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { userLoading } = useSelector((state: any) => state.user)
-
   const auth = FIREBASE_AUTH;
 
   const dispatch = useDispatch();

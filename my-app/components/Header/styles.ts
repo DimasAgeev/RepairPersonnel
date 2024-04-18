@@ -6,12 +6,11 @@ export const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: scaleSize(100),
-    borderColor: 'grey',
-    borderBottomWidth: 1,
+    height: scaleSize(160),
     paddingHorizontal: scaleSize(20),
-  },
 
+    paddingTop: scaleSize(80),
+  },
   title: {
     flex: 1,
     fontWeight: '800',

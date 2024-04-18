@@ -7,21 +7,25 @@ import { styles } from './styles';
 
 
 
+interface Service {
+  image: string;
+  title: string;
+  code: string;
+}
 
 
 
+export const ListServices: React.FC = () => {
 
-export const ListServices = () => {
-
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState<Service[]>([]);
 
 
   const getDocument = async () => {
-    const data = []
+    const data: Service[] = []
     const q = query(collection(DB, "Services"), orderBy('id', 'asc'));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      data.push(doc.data())
+      data.push(doc.data() as Service)
     });
     setValue(data)
 
@@ -35,7 +39,7 @@ export const ListServices = () => {
     <Animated.FlatList style={styles.wrapper}
       removeClippedSubviews={true}
       data={value}
-      renderItem={({ item }) => (
+      renderItem={({ item }: { item: Service }) => (
         <TouchableOpacity style={styles.contentWrapper}>
           <Image source={{ uri: item.image }} style={styles.img} />
           <View style={styles.title}>

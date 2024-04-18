@@ -4,54 +4,38 @@ import { scaleSize } from "../../utirls";
 
 export const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
-    width: scaleSize(800),
-    padding: scaleSize(10),
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
   },
   contentWrapper: {
+    height: scaleSize(300),
+  },
+  content: {
     flex: 1,
-    margin: scaleSize(10),
-    padding: scaleSize(10),
-    borderWidth: 2,
-    backgroundColor: 'rgba(250, 250, 250, 1)',
-    borderRadius: scaleSize(20),
-    borderColor: 'rgba(0, 129, 198, 0.1)',
-    gap: scaleSize(15),
-
-    shadowColor: '#000000',
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.5,
+    position: 'relative',
+    paddingRight: scaleSize(20),
   },
   img: {
-    width: 'auto',
+    width: scaleSize(600),
     alignItems: 'center',
     justifyContent: 'center',
-    height: scaleSize(350),
+    height: '100%',
     resizeMode: 'stretch',
     borderRadius: scaleSize(20),
+    objectFit: 'cover',
   },
-  textWrapper: {
-    paddingBottom: scaleSize(5),
-    borderBottomWidth: 1,
-    borderBlockColor: 'rgba(0, 129, 198, 0.1)',
-    //shadowColor: '#000000',
-    //shadowOffset: { width: 3, height: 3 },
-    //shadowOpacity: 0.5,
+  text: {
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    color: '#fff',
+    fontWeight: '900',
+    fontSize: 16,
   },
-  textDescription: {
-    fontSize: scaleSize(22),
-    textTransform: 'capitalize',
-    fontWeight: '800',
-  },
-  textPlace: {
-    fontSize: scaleSize(20),
-    textTransform: 'capitalize',
-    fontWeight: '500',
-  },
-  textCategory: {
-    fontSize: scaleSize(20),
-    color: 'red',
-    fontWeight: '500',
-    textTransform: 'capitalize',
+  title: {
+    fontWeight: '700',
+    fontSize: 18,
+    paddingBottom: 5,
   },
 })
