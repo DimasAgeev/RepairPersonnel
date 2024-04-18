@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: scaleSize(15),
     gap: scaleSize(10),
+    backgroundColor: '#fff',
   },
   background: {
     ...StyleSheet.absoluteFill,

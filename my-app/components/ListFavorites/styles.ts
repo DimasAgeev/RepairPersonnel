@@ -1,25 +1,28 @@
 import { StyleSheet } from "react-native";
-import { scaleSize } from "../../../utirls";
+import { scaleSize } from "../../utirls";
+
 
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    width: scaleSize(800),
-    padding: scaleSize(10),
+    minWidth: scaleSize(800),
+    paddingHorizontal: scaleSize(10),
+    paddingBottom: scaleSize(190),
+    backgroundColor: '#fff',
+    justifyContent: 'center',
   },
   contentWrapper: {
     flex: 1,
-    maxWidth: '47%',
-    padding: scaleSize(10),
+    backgroundColor: '#fff',
+    maxWidth: '48%',
     margin: scaleSize(10),
     borderWidth: 2,
-    backgroundColor: 'rgba(250, 250, 250, 1)',
-    borderRadius: scaleSize(20),
-    borderColor: 'rgba(0, 129, 198, 0.1)',
+    borderRadius: scaleSize(30),
+    borderColor: 'rgba(250, 250, 250, 1)',
     gap: scaleSize(15),
-    shadowColor: '#000000',
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.5,
+    shadowColor: '#000',
+    shadowOffset: { width: 5, height: 10 },
+    shadowOpacity: 0.3,
   },
   title: {
     fontWeight: '700',
@@ -43,38 +46,40 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     height: scaleSize(350),
     resizeMode: 'stretch',
-    borderRadius: scaleSize(20),
+    borderTopLeftRadius: scaleSize(30),
+    borderTopRightRadius: scaleSize(30),
+
   },
   textWrapper: {
     paddingBottom: scaleSize(5),
     borderBottomWidth: 1,
     borderBlockColor: 'rgba(0, 129, 198, 0.1)',
-    //shadowColor: '#000000',
-    //shadowOffset: { width: 3, height: 3 },
-    //shadowOpacity: 0.5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: scaleSize(15),
+  },
+  textWrapperCategory: {
+    borderRadius: 5,
+    padding: scaleSize(6),
+    backgroundColor: 'rgba(0, 129, 198, 0.1)',
   },
   textDescription: {
-    fontSize: scaleSize(22),
+    fontSize: scaleSize(25),
     textTransform: 'capitalize',
     fontWeight: '800',
+
   },
   textPlace: {
-    fontSize: scaleSize(20),
+    fontSize: scaleSize(25),
     textTransform: 'capitalize',
-    fontWeight: '500',
+    fontWeight: '800',
+    color: 'grey',
   },
   textCategory: {
-    fontSize: scaleSize(20),
-    color: 'red',
-    fontWeight: '500',
+    fontSize: scaleSize(22),
+    color: 'grey',
+    fontWeight: '900',
     textTransform: 'capitalize',
   },
-  textError: {
-    fontSize: scaleSize(45),
-    fontWeight: '800',
-    alignItems: 'center',
-    textAlign: 'center',
-    paddingTop: scaleSize(20),
-    color: 'rgba(210, 210, 210, 1)',
-  },
-});
+})

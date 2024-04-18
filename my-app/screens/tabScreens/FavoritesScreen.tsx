@@ -1,13 +1,17 @@
-import { SafeAreaView, View, Text } from 'react-native';
+import { SafeAreaView, View, ScrollView } from 'react-native';
+import { Header, ListFavorites, ListNews } from '../../components';
 import { styles } from "../styles"
 
 
 export const FavoritesScreen = () => {
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.contentWrapper}>
-        <Text>Favorites Screen</Text>
+    <ScrollView >
+      <View style={styles.wrapper}>
+        <View style={styles.contentWrapper}>
+          <Header />
+          <ListFavorites />
+        </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };

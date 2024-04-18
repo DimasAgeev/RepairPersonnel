@@ -81,4 +81,9 @@ export const styles = StyleSheet.create({
     fontWeight: '900',
     textTransform: 'capitalize',
   },
+  favoritesWrapper: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+  }
 })

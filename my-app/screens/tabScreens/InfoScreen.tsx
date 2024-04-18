@@ -19,7 +19,6 @@ export const InfoScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.contentWrapper}>
-        <TextInput onChangeText={(value) => console.log(value)} style={styles.input} placeholder='Поиск' />
         <ListServices />
       </View>
     </SafeAreaView>
